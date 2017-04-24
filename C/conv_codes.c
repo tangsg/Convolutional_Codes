@@ -1,4 +1,4 @@
-/* viterbi test 
+/* viterbi test
 
 */
 
@@ -14,14 +14,14 @@ int main(int argc, char *argv[])
 {
 	srand(time(NULL));
 	float pi = 3.14159265358979;
-	int length=8;
+	int length=4;
 	int MIB[8]={0};
 	int ii;int b;
 
 	float EbnodB= 10;
 	int nerror=0;
-	
-	
+
+
 							float *C0=0,*C1=0,*C2=0;//,*cc1=0,*cc2=0,*cc3=0;
 							C0 = (float *)malloc((length)*sizeof(float));
 							C1 = (float *)malloc((length)*sizeof(float));
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 			printf("\n errors WAVA Method =  %d  \n",nerror);
 			//printf("good bye");
 
-			
+
 //free(C0);
 //free(C1);
 //free(C2);
@@ -102,7 +102,7 @@ float gen_rand_uniform (void) {
 
 void viterbi_zero(float p_zerobits[],float p_onebits[],float p_twobits[],unsigned int length,int *outputBitStream)
 {
-	
+
 	int location=0;int currentstate=0;
 	int jj=0;int ii=0;int kk=0;
 	int LUT[64][64] ={[0 ... 63][0 ... 31]=0,[0 ...63][32 ... 63]=1}; //lut for traceback unit
@@ -129,9 +129,9 @@ void viterbi_zero(float p_zerobits[],float p_onebits[],float p_twobits[],unsigne
 		//fprintf(f,"\n eucle distance for instance %d \n",ii+1);//debugger
 		//for (kk=0; kk<128; kk++){fprintf(f,"%f",eucl_dist[kk]);}
 		//fprintf(f,"\n branch metrics \n");
-		
+
 		if (ii<6){
-			
+
 			for (jj=0;jj<32;jj++){
 				//printf(" %d ",2*jj+x);
 			branchmetric[0]=eucl_dist[2*jj]-eucl_dist[64+2*jj]+state_trellis[2*jj][ii];
@@ -155,7 +155,7 @@ void viterbi_zero(float p_zerobits[],float p_onebits[],float p_twobits[],unsigne
 			surv_path[jj][ii]=idx1+2*(jj);surv_path[32+jj][ii]=idx2+2*(jj);}
 			//fprintf(f,"\n %f %f ",state_trellis[jj][ii+1],state_trellis[32+jj][ii+1]);//debugger
 		}
-		
+
 	}
 	float minima=0;
 	minima=state_trellis[0][length];location=0;
@@ -167,7 +167,7 @@ void viterbi_zero(float p_zerobits[],float p_onebits[],float p_twobits[],unsigne
 		outputBitStream[ii]=LUT[prevstate][currentstate];
 		currentstate=prevstate;
 	}
-	
+
 	//FILE *f1;
 	//f1 = fopen("viterbi_output.txt","w");
 	//fprintf(f1,"ending state is %d \n",location);
