@@ -1,22 +1,23 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Viterbi Decoding using Path survivor          %
-%              -----------------                  %
-%           By Dama Sreekanth
-%                                                 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%  Specifications
-% 1. 1/3 code rate
-% 2. memory size 6
-% 3. polynomials [1011011] & [1111001] [1110101]
-%for ii = 0:127
-%        
-%    code(ii+1,1:3) = mod(sum(bitand(kron(de2bi(ii,7,'left-msb'),ones(3,1)),g),2),2).';
-%    end
-
-%%   Theory
-
-%%
+% /*
+% Script to evaluate convolution codes
+%     Copyright (C) 2017  sreekanth
+% 
+%     This program is free software: you can redistribute it and/or modify
+%     it under the terms of the GNU General Public License as published by
+%     the Free Software Foundation, either version 3 of the License, or
+%     (at your option) any later version.
+% 
+%     This program is distributed in the hope that it will be useful,
+%     but WITHOUT ANY WARRANTY; without even the implied warranty of
+%     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%     GNU General Public License for more details.
+% 
+%     You should have received a copy of the GNU General Public License
+%     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+% 
+%  * Author: sreekanth dama
+%  * Contact: sreekanth@iith.ac.in
+%  **/
 clear all
 clc
 tic
